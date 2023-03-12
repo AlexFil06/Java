@@ -6,15 +6,26 @@ import java.util.Arrays;
 // так и целые числа. Пройти по списку, найти и удалить целые числа.
 public class task2 {
     public static <ioException> void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("строка1", "6", "99", "9","11", "строка2", "12", "2", "строка3", "2", "строка4", "Строка5","Строка6", "44"));
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("строка1", "6", "99", "9","11", "строка2", "12", "2", "строка3", "2", "строка4", "строка5", "строка6", "44"));
         System.out.println(arrayList);
-        for (int i = 0; i < arrayList.size(); i++) {
+//        for (int i = 0; i < arrayList.size(); i++) {
+//            try {
+//                Integer.parseInt(arrayList.get(i));
+//                arrayList.remove(i);
+//            }catch (NumberFormatException e){
+//            }
+//        }
+//        System.out.print(arrayList);
+
+        arrayList.removeIf(str -> {
             try {
-                Integer.parseInt(arrayList.get(i));
-                arrayList.remove(i);
-            }catch (NumberFormatException e){
+                Integer.parseInt(str);
+                return true;
+            } catch (NumberFormatException e) {
+                return false;
             }
-        }
+        });
         System.out.print(arrayList);
     }
 }
+
