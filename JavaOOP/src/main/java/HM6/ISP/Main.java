@@ -5,5 +5,10 @@ public class Main {
         Fish shark = new Shark();
         shark.move();
         shark.swim();
+
+        Snake anaconda = new Anaconda();
+        anaconda.move();
+        anaconda.creeps();
     }
+
 }
